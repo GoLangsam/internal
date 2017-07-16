@@ -5,6 +5,12 @@ Daryl usually went by his forename only.
 
 A ***really*** friendly, houmorous (and **devilish** clever) guy - and rightfully a worldchampion in his craft.
 
+![Daryl](Daryl.jpg)
+
+It's been **great honour** and **big fun** to meet with him and to e.g. translate him simultaneous into German during some of his lecture tours - some years ago.
+
+**Daryl**: We *miss* You! *RIP*
+
 Hint: Check him out @ [YouTube](https://www.youtube.com/results?search_query=Daryl%27s+magic) or go straight to beauties such as
 
 - [Daryl's Ambitius Card](https://www.youtube.com/watch?v=w4iu5FMaR2o)
@@ -19,7 +25,4 @@ Hint: Check him out @ [YouTube](https://www.youtube.com/results?search_query=Dar
 - [3 Fly III by Daryl](https://www.youtube.com/watch?v=yvHlL5WlaDQ)
 - [The (W)hole Thing by Daryl](https://www.youtube.com/watch?v=BKtmfdfJ6os)
 
-It's been **great honour** and **big fun** to meet with him and to e.g. translate him simultaneous into German during some of his lecture tours - some years ago.
-Daryl: We miss You!
 
-![Daryl](Daryl.jpg)
