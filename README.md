@@ -12,4 +12,14 @@ Stuff that is either
 in order to be used in Your project.
 
 Stuff such as:
-- ... more to come
+
+## container/
+
+### ccsafe/
+- `dotpath`
+
+### oneway
+no packages yet
+
+## do/
+- `dot`
