@@ -14,6 +14,7 @@ in order to be used in Your project.
 Stuff such as:
 
 ## cmd/
+- `dotpath` - simple CLI to play with `./container/ccsafe/dotpath`
 - `glob` - simple CLI to play with `filepath/glob`
 
 ## container/
