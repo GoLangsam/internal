@@ -11,19 +11,27 @@ Stuff that is either
 - not general enough (yet)
 in order to be used in Your project.
 
+---
 Stuff such as:
 
 ## cmd/
 - `dotpath` - simple CLI to play with `./container/ccsafe/dotpath`
 - `glob` - simple CLI to play with `filepath/glob`
 
+---
 ## container/
 
 ### ccsafe/
-- `dotpath`
+- `dotpath` - a fs-plist with more meaning of dots
 
 ### oneway
 no packages yet
 
+---
 ## do/
 - `dot`
+
+### do/cmd/
+- `cancel` - a brute-force Cancellor for CLI `cmd`s
+
+---
