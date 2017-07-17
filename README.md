@@ -13,6 +13,9 @@ in order to be used in Your project.
 
 Stuff such as:
 
+## cmd/
+- `glob` - simple CLI to play with `filepath/glob`
+
 ## container/
 
 ### ccsafe/
