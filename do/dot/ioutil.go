@@ -1,4 +1,4 @@
-﻿// Copyright 2016 Andreas Pannewitz. All rights reserved.
+// Copyright 2016 Andreas Pannewitz. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -11,9 +11,10 @@ import (
 	"strings"
 )
 
+// Perm defaults to '0644' as os.FileMode
 var Perm os.FileMode = 0644 // default os.FileMode
 
-// func ioutil.ReadFile(filename string) ([]byte, error)
+// TagReadFile applies `func ioutil.ReadFile(filename string) ([]byte, error)`
 func TagReadFile(tar Dot, filename string) Dot {
 	myName := "TagReadFile"
 
@@ -26,16 +27,18 @@ func TagReadFile(tar Dot, filename string) Dot {
 	return tar
 }
 
+// DoTagReadFile applies `func ioutil.ReadFile vie TagReadFile
 func DoTagReadFile(src, tar Dot) Dot {
 	TagReadFile(tar, src.String())
 	return src
 }
 
+// ExecTagReadFile applies applies `func ioutil.ReadFile to d vie DoTagReadFile
 func ExecTagReadFile(d Dot) Dot {
 	return TagReadFile(d, d.String())
 }
 
-// func ioutil.WriteFile(filename string, data []byte, perm os.FileMode) error
+// WriteFileData applies `func ioutil.WriteFile(filename string, data []byte, perm os.FileMode) error`
 func WriteFileData(tar Dot, filename string, data []byte) Dot {
 	myName := "WriteFileData"
 
@@ -44,7 +47,7 @@ func WriteFileData(tar Dot, filename string, data []byte) Dot {
 	return tar
 }
 
-// func ioutil.WriteFile(filename string, data []byte, perm os.FileMode) error
+// WriteFileFromValue applies `func ioutil.WriteFile` via WriteFileData
 func WriteFileFromValue(tar Dot, filename string) Dot {
 	myName := "WriteFile"
 	_ = myName
@@ -56,11 +59,13 @@ func WriteFileFromValue(tar Dot, filename string) Dot {
 	return tar
 }
 
+// DoWriteFileFromValue applies `func ioutil.WriteFile` via WriteFileFromValue
 func DoWriteFileFromValue(src, tar Dot) Dot {
 	WriteFileFromValue(tar, src.String())
 	return src
 }
 
+// ExecWriteFileFromValue applies `func ioutil.WriteFile` to d via DoWriteFileFromValue
 func ExecWriteFileFromValue(d Dot) Dot {
 	return DoWriteFileFromValue(d, d)
 }
@@ -78,9 +83,9 @@ func readDir(tar Dot, myName, dirname string) ([]os.FileInfo, bool) {
 	}
 }
 
-// ReadAllDir: Read all IsDir from dirname and Tag FileInfo, and recurse
-// Skips ".git" or other dot nonsense.
-// func ioutil.ReadDir(dirname string) ([]os.FileInfo, error)
+// ReadAllDir reads all IsDir from dirname and Tag FileInfo, and recurses
+//  Skips ".git" or other dot nonsense.
+//  func ioutil.ReadDir(dirname string) ([]os.FileInfo, error)
 func ReadAllDirs(tar Dot, dirname string) Dot {
 	myName := "ReadDir"
 
@@ -95,12 +100,14 @@ func ReadAllDirs(tar Dot, dirname string) Dot {
 	return tar
 }
 
+// DoReadAllDirs applies ReadAllDirs
 func DoReadAllDirs(src, tar Dot) Dot {
 	dirname := src.String()
 	ReadAllDirs(tar, dirname)
 	return src
 }
 
+// ExecReadAllDirs applies ReadAllDirs to d via DoReadAllDirs
 func ExecReadAllDirs(d Dot) Dot {
 	return DoReadAllDirs(d, d)
 }
@@ -121,17 +128,19 @@ func ReadDirFils(tar Dot, dirname string) Dot {
 	return tar
 }
 
+// DoReadDirFils applies ReadDirFils to src and tar
 func DoReadDirFils(src, tar Dot) Dot {
 	dirname := src.String()
 	ReadDirFils(tar, dirname)
 	return src
 }
 
+// ExecReadDirFils applies ReadDirFils to d via DoReadDirFils
 func ExecReadDirFils(d Dot) Dot {
 	return DoReadDirFils(d, d)
 }
 
-// ReadDir: Read dirname and Tag FileInfo
+// ReadDir reads dirname and Tag FileInfo
 // func ioutil.ReadDir(dirname string) ([]os.FileInfo, error)
 func ReadDir(tar Dot, dirname string) Dot {
 	myName := "ReadDir"
@@ -145,12 +154,14 @@ func ReadDir(tar Dot, dirname string) Dot {
 	return tar
 }
 
+// DoReadDir applies ReadDir to src and tar
 func DoReadDir(src, tar Dot) Dot {
 	dirname := src.String()
 	ReadDir(tar, dirname)
 	return src
 }
 
+// ExecReadDir applies ReadDir to d via DoReadDir
 func ExecReadDir(d Dot) Dot {
 	return DoReadDir(d, d)
 }

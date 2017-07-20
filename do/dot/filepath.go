@@ -1,4 +1,4 @@
-﻿// Copyright 2016 Andreas Pannewitz. All rights reserved.
+// Copyright 2016 Andreas Pannewitz. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -18,7 +18,7 @@ func toSlash(path string) string {
 	return filepath.ToSlash(filepath.Clean(path))
 }
 
-// filePathGlob
+// FilePathGlob applies `filepath.Glob`
 func FilePathGlob(tar Dot, path string) Dot {
 	myName := "Glob"
 
@@ -36,13 +36,13 @@ func FilePathGlob(tar Dot, path string) Dot {
 	return tar
 }
 
-// Glob with pattern from src and add results to tar below "FilePath:"
+// DoFilePathGlob applies `filepath.Glob` (via FilePathGlob) with pattern from src and add results to tar below "FilePath:"
 func DoFilePathGlob(src, tar Dot) Dot {
 	FilePathGlob(tar, src.String())
 	return src
 }
 
-// Glob with pattern from src and add results to tar below "FilePath:"
+// ExecFilePathGlob applies `filepath.Glob` (via DoFilePathGlob) with pattern from src and add results to tar below "FilePath:"
 func ExecFilePathGlob(d Dot) Dot {
 	return DoFilePathGlob(d, d)
 }
@@ -100,7 +100,7 @@ order, which makes the output deterministic but means that for very large
 directories Walk can be inefficient. Walk does not follow symbolic links.
 */
 
-// Walk down path and add results: Key = FilePath, Val = os.FileInfo
+// InfoWalk applies `filepath.Walk` down path and add results: Key = FilePath, Val = os.FileInfo
 func InfoWalk(tar Dot, dirname, ext string) Dot {
 	myName := "InfoWalk"
 
@@ -110,6 +110,7 @@ func InfoWalk(tar Dot, dirname, ext string) Dot {
 	return tar
 }
 
+// DoInfoWalk applies `filepath.Walk` via InfoWalk
 func DoInfoWalk(src, tar Dot) Dot {
 	dirname := src.String()
 	if ext, ok := vNonEmpty(src, "DoInfoWalk"); ok {
@@ -118,6 +119,7 @@ func DoInfoWalk(src, tar Dot) Dot {
 	return src
 }
 
+// ExecInfoWalk applies `filepath.Walk` via DoInfoWalk
 func ExecInfoWalk(d Dot) Dot {
 	return DoInfoWalk(d, d)
 }

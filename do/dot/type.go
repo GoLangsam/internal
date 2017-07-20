@@ -1,4 +1,4 @@
-﻿// Copyright 2016 Andreas Pannewitz. All rights reserved.
+// Copyright 2016 Andreas Pannewitz. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -17,6 +17,7 @@ const (
 	Exec     Type = "Exec"     // *template.Template - executed
 )
 
+// Types handled by this package as slice
 var TypeS = []Type{
 	Error,
 	Dirs,
@@ -32,14 +33,17 @@ var TypeS = []Type{
 // Type represents a type handled by this package
 type Type string
 
+// Id returns the Id-string as ':name:'
 func (t Type) Id() string {
 	return ":" + t.String() + ":"
 }
 
+// String() to implement `fmt.Stringer`
 func (t Type) String() string {
 	return string(t)
 }
 
+// Is determines, if t names/represents a known type
 func (t Type) Is(v interface{}) bool {
 	switch t.String() {
 	case "Error":
@@ -65,6 +69,7 @@ func (t Type) Is(v interface{}) bool {
 	}
 }
 
+// In determines, if t names/represents a known type
 func (t Type) In(d Dot) bool {
 	switch t.String() {
 	case "Error":
@@ -93,6 +98,8 @@ func (t Type) In(d Dot) bool {
 // if FileInfo.Is(d.GetV())
 // if FileInfo.In(d)
 // TODO: Implement inside *Dot with //  && d.Up().String == t.Id()
+
+// Typer is to satisfied by any type representation
 type Typer interface {
 	Id() string
 	String() string

@@ -11,7 +11,7 @@ import (
 var cancel = make(chan struct{})
 var kill = make(chan os.Signal)
 var interrupt = make(chan os.Signal)
-var ctrl_C = make(chan os.Signal)
+var ctrlC = make(chan os.Signal)
 
 func init() {
 	// Cancel traversal when input is detected.
@@ -21,7 +21,7 @@ func init() {
 	}()
 	signal.Notify(kill, os.Kill)           // TODO: support
 	signal.Notify(interrupt, os.Interrupt) // TODO: support
-	signal.Notify(ctrl_C, syscall.SIGHUP)
+	signal.Notify(ctrlC, syscall.SIGHUP)
 }
 
 // usage:
@@ -51,7 +51,7 @@ func Canceler(ns ...int) {
 			select {
 			case <-cancel:
 				exit()
-			case <-ctrl_C:
+			case <-ctrlC:
 				exit()
 			default:
 				time.Sleep(time.Duration(n) * time.Millisecond)
@@ -65,7 +65,7 @@ func Cancelled() bool {
 	select {
 	case <-cancel:
 		return true
-	case <-ctrl_C:
+	case <-ctrlC:
 		return true
 	default:
 		return false

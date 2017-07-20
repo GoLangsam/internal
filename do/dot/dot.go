@@ -1,4 +1,4 @@
-﻿// Copyright 2016 Andreas Pannewitz. All rights reserved.
+// Copyright 2016 Andreas Pannewitz. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -8,6 +8,7 @@ import (
 	"github.com/golangsam/do/ats"
 )
 
+// Dot defines what we need from *dot.Dot
 type Dot interface {
 	//	Lock()	 // sync.Locker
 	//	Unlock()	// sync.Locker
@@ -51,10 +52,11 @@ func v(d Dot) string {
 
 func vNonEmpty(d Dot, myName string) (string, bool) {
 	value := v(d)
-	if value == "" {
+	switch{
+	case: value == ""
 		d.SeeNotOk(myName, d.String(), false, "my Value must not be empty!")
 		return "", false
-	} else {
+	default:
 		return value, true
 	}
 }

@@ -11,7 +11,9 @@ import (
 )
 
 const (
+	// GoPathSeparator is the pathseparator used (but not exported) by standard package `path`
 	GoPathSeparator = `/`
+	// GoPathSeparator is the path-list separator `os.PathSeparator`
 	OsPathSeparator = string(os.PathSeparator)
 )
 
@@ -58,9 +60,10 @@ func (dp *DotPath) getVolumeName() *DotPath {
 
 // helper to avoid empty elements
 func noEmpty(pathName string) string {
-	if len(pathName) == 0 {
+	switch {
+	case len(pathName) == 0:
 		return path.Clean(pathName)
-	} else {
+	default:
 		return pathName
 	}
 }

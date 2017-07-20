@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// package dotpath is all about Pathinking - Path..think.ing - Path.ink.ing - Pa.think.ing - Pa.thin.king ...
+// Package dotpath is all about Pathinking - Path..think.ing - Path.ink.ing - Pa.think.ing - Pa.thin.king ...
 //
 // package dotpath is intended as a parser for user-provided strings
 // separated by some single character delimiter (which is not a Dot)

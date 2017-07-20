@@ -1,4 +1,4 @@
-﻿// Copyright 2016 Andreas Pannewitz. All rights reserved.
+// Copyright 2016 Andreas Pannewitz. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -8,6 +8,7 @@ import (
 	"os"
 )
 
+// OsFriendly - interface exported for go doc only
 type OsFriendly interface {
 	FileInfoIsDir(d Dot) bool
 	FileInfoIsFile(d Dot) bool
@@ -16,6 +17,7 @@ type OsFriendly interface {
 
 // var _ OsFriendly = New("Interface satisfied? :-)")
 
+// IsFileInfo determines, if we have an `os.FileInfo`
 func IsFileInfo(v interface{}) bool {
 	switch v.(type) {
 	case os.FileInfo:
@@ -25,6 +27,7 @@ func IsFileInfo(v interface{}) bool {
 	}
 }
 
+// ToFileInfo casts to `os.FileInfo`, if possible
 func ToFileInfo(v interface{}) (os.FileInfo, bool) {
 	switch v := v.(type) {
 	case os.FileInfo:
@@ -34,6 +37,7 @@ func ToFileInfo(v interface{}) (os.FileInfo, bool) {
 	}
 }
 
+// FileInfoIsDir casts to `os.FileInfo`, if possible, and determines IsDir()
 func FileInfoIsDir(d Dot) bool {
 	fi, ok := ToFileInfo(d.GetV())
 	if ok {
@@ -43,6 +47,7 @@ func FileInfoIsDir(d Dot) bool {
 	}
 }
 
+// FileInfoIsFile casts to `os.FileInfo`, if possible, and determines !IsDir()
 func FileInfoIsFile(d Dot) bool {
 	fi, ok := ToFileInfo(d.GetV())
 	if ok {
