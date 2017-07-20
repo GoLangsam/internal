@@ -17,7 +17,7 @@ const (
 	Exec     Type = "Exec"     // *template.Template - executed
 )
 
-// Types handled by this package as slice
+// TypeS handled by this package as slice
 var TypeS = []Type{
 	Error,
 	Dirs,

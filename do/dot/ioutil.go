@@ -76,14 +76,15 @@ func readDir(tar Dot, myName, dirname string) ([]os.FileInfo, bool) {
 	dirname = frSlash(dirname)
 
 	dirs, err := ioutil.ReadDir(dirname)
-	if tar.SeeError(myName, dirname, err) {
+	switch {
+	case tar.SeeError(myName, dirname, err):
 		return []os.FileInfo{}, false
-	} else {
+	default:
 		return dirs, true
 	}
 }
 
-// ReadAllDir reads all IsDir from dirname and Tag FileInfo, and recurses
+// ReadAllDirs reads all IsDir from dirname and Tag FileInfo, and recurses
 //  Skips ".git" or other dot nonsense.
 //  func ioutil.ReadDir(dirname string) ([]os.FileInfo, error)
 func ReadAllDirs(tar Dot, dirname string) Dot {
@@ -112,8 +113,8 @@ func ExecReadAllDirs(d Dot) Dot {
 	return DoReadAllDirs(d, d)
 }
 
-// ReadDirFils: Read all !IsDir from dirname and Tag FileInfo
-// func ioutil.ReadDir(dirname string) ([]os.FileInfo, error)
+// ReadDirFils reads all !IsDir from dirname and Tag FileInfo
+//  `func ioutil.ReadDir(dirname string) ([]os.FileInfo, error)`
 func ReadDirFils(tar Dot, dirname string) Dot {
 	myName := "ReadDirFils"
 

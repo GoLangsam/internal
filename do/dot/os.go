@@ -20,40 +20,42 @@ type OsFriendly interface {
 // IsFileInfo determines, if we have an `os.FileInfo`
 func IsFileInfo(v interface{}) bool {
 	switch v.(type) {
-	case os.FileInfo:
-		return true
-	default:
+	case !os.FileInfo:
 		return false
+	default:
+		return true
 	}
 }
 
 // ToFileInfo casts to `os.FileInfo`, if possible
 func ToFileInfo(v interface{}) (os.FileInfo, bool) {
 	switch v := v.(type) {
-	case os.FileInfo:
-		return v, true
-	default:
+	case !os.FileInfo:
 		return nil, false
+	default:
+		return v, true
 	}
 }
 
 // FileInfoIsDir casts to `os.FileInfo`, if possible, and determines IsDir()
 func FileInfoIsDir(d Dot) bool {
 	fi, ok := ToFileInfo(d.GetV())
-	if ok {
-		return fi.IsDir()
-	} else {
+	switch {
+	case !ok:
 		return false
+	default:
+		return fi.IsDir()
 	}
 }
 
 // FileInfoIsFile casts to `os.FileInfo`, if possible, and determines !IsDir()
 func FileInfoIsFile(d Dot) bool {
 	fi, ok := ToFileInfo(d.GetV())
-	if ok {
-		return !fi.IsDir()
-	} else {
+	switch {
+	case !ok:
 		return false
+	default:
+		return !fi.IsDir()
 	}
 }
 
