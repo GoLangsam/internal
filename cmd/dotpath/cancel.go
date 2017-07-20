@@ -24,7 +24,7 @@ func init() {
 //	case <-cancel: // abort (after drain, if need)
 //
 
-// convenience:
+// Cancelled is a convenience to determine iff cancel has been signalled somehow
 func Cancelled() bool {
 	select {
 	case <-cancel:

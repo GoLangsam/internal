@@ -47,9 +47,10 @@ func PathDotTailor(head, tail string) []string {
 		panic("PathDotTailor: Expect tail to consist only of dots - but found:" + tail)
 	}
 
-	if lenhead < 1 {
+	switch {
+	case lenhead < 1:
 		return OneTripleAnyPairs(tail)
-	} else {
+	default:
 		/* old version: keep one dot with head
 		l := []string{head + string(tail[:1])}
 		return append(l, OneTripleAnyPairs(tail[1:])...)

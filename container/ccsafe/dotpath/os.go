@@ -13,7 +13,7 @@ import (
 const (
 	// GoPathSeparator is the pathseparator used (but not exported) by standard package `path`
 	GoPathSeparator = `/`
-	// GoPathSeparator is the path-list separator `os.PathSeparator`
+	// OsPathSeparator is the path-list separator `os.PathSeparator`
 	OsPathSeparator = string(os.PathSeparator)
 )
 

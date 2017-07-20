@@ -52,8 +52,8 @@ func v(d Dot) string {
 
 func vNonEmpty(d Dot, myName string) (string, bool) {
 	value := v(d)
-	switch{
-	case: value == ""
+	switch {
+	case value == "":
 		d.SeeNotOk(myName, d.String(), false, "my Value must not be empty!")
 		return "", false
 	default:
