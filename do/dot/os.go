@@ -20,20 +20,20 @@ type OsFriendly interface {
 // IsFileInfo determines, if we have an `os.FileInfo`
 func IsFileInfo(v interface{}) bool {
 	switch v.(type) {
-	case !os.FileInfo:
-		return false
-	default:
+	case os.FileInfo:
 		return true
+	default:
+		return false
 	}
 }
 
 // ToFileInfo casts to `os.FileInfo`, if possible
 func ToFileInfo(v interface{}) (os.FileInfo, bool) {
 	switch v := v.(type) {
-	case !os.FileInfo:
-		return nil, false
-	default:
+	case os.FileInfo:
 		return v, true
+	default:
+		return nil, false
 	}
 }
 
