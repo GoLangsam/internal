@@ -8,9 +8,13 @@ import (
 	"flag"
 	"fmt"
 	"path/filepath"
+
+	"github.com/golangsam/do/cli/cancel"
 )
 
 func main() {
+	_ = cancel.Canceler() // TODO pass ctx on
+
 	flag.Parse()
 
 	for _, arg := range flag.Args() {

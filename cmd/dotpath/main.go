@@ -8,10 +8,13 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/golangsam/do/cli/cancel"
 	"github.com/golangsam/internal/container/ccsafe/dotpath"
 )
 
 func main() {
+	_ = cancel.Canceler() // TODO pass ctx on
+
 	flag.Parse()
 
 	ds := dotpath.FilePathS(flag.Args()...)
