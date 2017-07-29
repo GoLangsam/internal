@@ -1,6 +1,8 @@
-# internal
-
 ***Hide***, *what You don't want the audience to* ***see*** - **[Daryl](Daryl.md)**
+
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Go Report Card](https://goreportcard.com/badge/github.com/GoLangsam/internal)](https://goreportcard.com/report/github.com/GoLangsam/internal)
+[![Build Status](https://travis-ci.org/GoLangsam/internal.svg?branch=master)](https://travis-ci.org/GoLangsam/internal)
 
 In *[go](http://golang.org)* any package below/inside `internal` is **not** exported/published to any package above - (only to siblings and their descendants).
 
