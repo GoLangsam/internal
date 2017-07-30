@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	_ = cancel.Canceler() // TODO pass ctx on
+	_, _ = cancel.WithCancel() // TODO pass ctx on
 
 	flag.Parse()
 
