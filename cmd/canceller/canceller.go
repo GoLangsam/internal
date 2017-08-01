@@ -13,15 +13,15 @@ import (
 )
 
 func main() {
-	fmt.Println("Waiting for a cancel signal!")
-	fmt.Println("You may like to press 'Enter' or 'Ctrl-C'")
+	fmt.Println("Waiting for cancel signal:")
+	fmt.Println("Press 'Enter' or 'Ctrl-C'!")
 	timeout := 5 * time.Second
-	fmt.Println("I'll wait for " + timeout.String() + " Seconds")
+	fmt.Println("You have " + timeout.String() + " to go ...")
 
 	// beg of use
 	ctx, _ := cancel.WithTimeout(timeout)
 	<-ctx.Done()
 	// end of use
 
-	fmt.Println("Context reported: " + ctx.Err().Error())
+	fmt.Println("I see: " + ctx.Err().Error())
 }
