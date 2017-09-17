@@ -8,8 +8,8 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/golangsam/do/cli/cancel"
-	"github.com/golangsam/internal/container/ccsafe/dotpath"
+	"github.com/GoLangsam/do/cli/cancel"
+	"github.com/GoLangsam/internal/container/ccsafe/dotpath"
 )
 
 func main() {

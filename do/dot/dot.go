@@ -5,7 +5,7 @@
 package dot
 
 import (
-	"github.com/golangsam/do/ats"
+	"github.com/GoLangsam/do/ats"
 )
 
 // Dot defines what we need from *dot.Dot
