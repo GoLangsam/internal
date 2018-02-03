@@ -38,3 +38,7 @@ no packages yet
 - `cancel` - a brute-force Cancellor for CLI `cmd`s
 
 ---
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/GoLangsam/internal/badge.svg?style=beer-square)](https://beerpay.io/GoLangsam/internal)  [![Beerpay](https://beerpay.io/GoLangsam/internal/make-wish.svg?style=flat-square)](https://beerpay.io/GoLangsam/internal?focus=wish)
