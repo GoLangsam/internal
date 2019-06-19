@@ -6,5 +6,5 @@ import "fmt"
 
 // Println for easy access
 func Println(a ...interface{}) (n int, err error) {
-	return fmt.Println(a)
+	return fmt.Println(a...)
 }
