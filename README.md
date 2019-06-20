@@ -38,6 +38,12 @@ no packages yet
 - `cancel` - a brute-force Cancellor for CLI `cmd`s
 
 ---
+Your suggestions, remarks, questions and/or contributions are welcome ;-)
+
+---
+## Think deep - code happy - be simple - see clear :-)
+
+---
 ## Support on Beerpay
 Hey dude! Help me out for a couple of :beers:!
 
