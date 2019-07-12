@@ -1,19 +1,23 @@
 // Copyright 2016 Andreas Pannewitz. All rights reserved.
 
-package WikiTemplate
+package main
+
+import (
+	WT "github.com/GoLangsam/internal/cmd/WikiTemplate/WikiTemplate"
+)
 
 func main() {
 
-	Init()
+	WT.Init()
 
-	Wikis.Generate(Wikis)
-	Emoticons.Generate(Emoticons)
-	Regions.Generate(Regions)
-	Countries.Generate(Countries)
-	Cities.Generate(Cities)
-	Airports.Generate(Cities) // currently via myCities
+	WT.Wikis.Generate(WT.Wikis)
+	WT.Emoticons.Generate(WT.Emoticons)
+	WT.Regions.Generate(WT.Regions)
+	WT.Countries.Generate(WT.Countries)
+	WT.Cities.Generate(WT.Cities)
+	WT.Airports.Generate(WT.Cities) // currently via myCities
 
 	if false {
-		//	Println(Wikis)
+		//	WT.Println(WT.Wikis)
 	}
 }
