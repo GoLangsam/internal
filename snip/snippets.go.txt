@@ -1,0 +1,55 @@
+	defer runtime.GOMAXPROCS(runtime.GOMAXPROCS(4))
+
+
+
+	// Wait a second before return
+	defer func(t <-chan time.Time) {
+		<-t
+	}(time.After(time.Second))
+
+
+//	----------------------------------------------------------------------
+	sem := make(chan struct{}, runtime.NumCPU()*2 + 10) // limit open file descriptors
+
+	for _, filename := range filenames {
+		go func(filename string) { // all goroutines are launched
+			sem <- struct{}{}  // and block, as long as cap(sem) are busy
+			defer func() { <-sem }()
+
+			// ...
+
+			// Wait a second before return
+			defer func(t <-chan time.Time) {
+				<-t
+			}(time.After(time.Second))
+
+		}(filename)
+	}
+
+//	----------------------------------------------------------------------
+
+	var wg sync.WaitGroup
+
+	// Limit the number of simultaneously open files.
+	sem := make(chan struct{}, runtime.GOMAXPROCS(0)+10) // do not use - "This call will go away when the scheduler improves."
+	sem := make(chan struct{}, runtime.NumCPU()) // limit open file descriptors
+	sem := make(chan struct{}, runtime.NumCPU()*2 + 10) // limit open file descriptors
+
+	for _, filename := range filenames {
+		sem <- struct{}{} // block loop as long as cap(sem) are busy
+		wg.Add(1)
+		go func(filename string) {
+			defer func() { <-sem }()
+			defer func() { wg.Done() }()
+
+			// ...
+
+		}(filename)
+	}
+	wg.Wait()
+
+
+			defer func() {
+				<-sem
+				wg.Done()
+			}()
